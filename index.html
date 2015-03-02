@@ -9,6 +9,17 @@
 		          <input type='text' id='messageInput' placeholder='Message'>
 			      <script>
 			            var myDataRef = new Firebase('https://brilliant-inferno-6829.firebaseio.com/');
+				    var i = 0;
+				    var titleCurrentlyChanging = false;
+
+				    var hasFocus = true;
+				    $(window).bind("blur", function() { 
+				        hasFocus = false;
+					});
+					$(window).bind("focus", function() {
+					    hasFocus = true;
+					        document.title = 'MySite | Chat'; 
+						});
 				    function changeTitle() {
 				        i++;
 					    if(i%2) {
