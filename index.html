@@ -9,6 +9,24 @@
 		          <input type='text' id='messageInput' placeholder='Message'>
 			      <script>
 			            var myDataRef = new Firebase('https://brilliant-inferno-6829.firebaseio.com/');
+				    function changeTitle() {
+				        i++;
+					    if(i%2) {
+					            document.title = 'New message on mysite!';
+						        }
+							    else {
+							            document.title = 'MySite | Chat';
+								        }
+									    if(!hasFocus) {
+									            titleCurrentlyChanging = true;
+										            setTimeout('changeTitle()',1000);
+											        }
+												    else {
+												            titleCurrentlyChanging = false;
+													            i=0;
+														            document.title = 'MySite | Chat';
+															        }
+																}
 				          $('#messageInput').keypress(function (e) {
 					          if (e.keyCode == 13) {
 						            var name = $('#nameInput').val();
@@ -24,7 +42,11 @@
 																          function displayChatMessage(name, text) {
 																	          $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
 																		          $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+																			  if(!hasFocus && !titleCurrentlyChanging) {
+																			      changeTitle();
+																			      }
 																			        };
-																				    </script>
-																				      </body>
-																				      </html>
+				</script>
+			 </body>
+</html>
+ 
