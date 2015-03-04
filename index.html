@@ -1,63 +1,67 @@
+<!DOCTYPE html>
 <html>
   <head>
-      <script src='https://cdn.firebase.com/js/client/2.0.4/firebase.js'></script>
-          <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
-	    </head>
-	      <body>
-	          <div id='messagesDiv'></div>
-		      <input type='text' id='nameInput' placeholder='Name'>
-		          <input type='text' id='messageInput' placeholder='Message'>
-			      <script>
-			            var myDataRef = new Firebase('https://brilliant-inferno-6829.firebaseio.com/');
-				    var i = 0;
-				    var titleCurrentlyChanging = false;
+    <meta charset="utf-8" />
 
-				    var hasFocus = true;
-				    $(window).bind("blur", function() { 
-				        hasFocus = false;
-					});
-					$(window).bind("focus", function() {
-					    hasFocus = true;
-					        document.title = 'MySite | Chat'; 
-						});
-				    function changeTitle() {
-				        i++;
-					    if(i%2) {
-					            document.title = 'New message on mysite!';
-						        }
-							    else {
-							            document.title = 'MySite | Chat';
-								        }
-									    if(!hasFocus) {
-									            titleCurrentlyChanging = true;
-										            setTimeout('changeTitle()',1000);
-											        }
-												    else {
-												            titleCurrentlyChanging = false;
-													            i=0;
-														            document.title = 'MySite | Chat';
-															        }
-																}
-				          $('#messageInput').keypress(function (e) {
-					          if (e.keyCode == 13) {
-						            var name = $('#nameInput').val();
-							              var text = $('#messageInput').val();
-								                myDataRef.push({name: name, text: text});
-										          $('#messageInput').val('');
-											          }
-												        });
-													      myDataRef.on('child_added', function(snapshot) {
-													              var message = snapshot.val();
-														              displayChatMessage(message.name, message.text);
-															            });
-																          function displayChatMessage(name, text) {
-																	          $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
-																		          $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
-																			  if(!hasFocus && !titleCurrentlyChanging) {
-																			      changeTitle();
-																			      }
-																			        };
-				</script>
-			 </body>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <!-- Firebase -->
+    <script src="https://cdn.firebase.com/js/client/2.0.2/firebase.js"></script>
+
+    <!-- Firechat -->
+    <link rel="stylesheet" href="https://cdn.firebase.com/libs/firechat/2.0.1/firechat.min.css" />
+    <script src="https://cdn.firebase.com/libs/firechat/2.0.1/firechat.min.js"></script>
+
+    <!-- Custom CSS -->
+    <style>
+      #firechat-wrapper {
+        height: 475px;
+        max-width: 325px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        margin: 50px auto;
+        text-align: center;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        -webkit-box-shadow: 0 5px 25px #666;
+        -moz-box-shadow: 0 5px 25px #666;
+        box-shadow: 0 5px 25px #666;
+      }
+    </style>
+  </head>
+
+  <!--
+    Example: Anonymous Authentication
+
+    This example uses Firebase Simple Login to create "anonymous" user sessions in Firebase,
+    meaning that user credentials are not required, though a user has a valid Firebase
+    authentication token and security rules still apply.
+
+    Requirements: in order to use this example with your own Firebase, you'll need to do the following:
+      1. Apply the security rules at https://github.com/firebase/firechat/blob/master/rules.json
+      2. Enable the "Anonymous" authentication provider in Forge
+      3. Update the URL below to reference your Firebase
+      4. Update the room id for auto-entry with a public room you have created
+   -->
+  <body>
+    <div id="firechat-wrapper"></div>
+    <script type="text/javascript">
+      var chatRef = new Firebase("https://firechat-demo.firebaseio.com");
+      var chat = new FirechatUI(chatRef, document.getElementById("firechat-wrapper"));
+      chatRef.onAuth(function(authData) {
+        if (authData) {
+          chat.setUser(authData.uid, "Anonymous" + authData.uid.substr(10, 8));
+        } else {
+          chatRef.authAnonymously(function(error, authData) {
+            if (error) {
+              console.log(error);
+            }
+          });
+        }
+      });
+    </script>
+  </body>
 </html>
- 
