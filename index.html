@@ -51,13 +51,11 @@
     <script type="text/javascript">
       var chatRef = new Firebase("https://brilliant-inferno-6829.firebaseio.com");
       var chat = new FirechatUI(chatRef, document.getElementById("firechat-wrapper"));
-      chatRef.onAuth(function(authData) {
-        if (authData) {
-          chat.setUser(authData.uid, "Anonymous" + authData.uid.substr(10, 8));
+      chatRef.authWithOAuthPopup("google", function(error, authData) {
+        if (error) {
+          console.log("Login failed!", error);
         } else {
-          chatRef.authAnonymously(function(error, authData) {
-            if (error) {
-              console.log(error);
+              console.log("Authenticated successfully. Payload:", authData);
             }
           });
         }
