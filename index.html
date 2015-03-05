@@ -55,7 +55,7 @@
         if (error) {
           console.log("Login failed!", error);
         } else {
-          chat.setUser(authData.uid, "google" + authData.uid.substr(10, 8));
+          chat.setUser(authData.uid, authData.google.displayName);
               console.log("Authenticated successfully. Payload:", authData);
             }
           });
