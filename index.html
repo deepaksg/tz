@@ -55,10 +55,11 @@
         if (error) {
           console.log("Login failed!", error);
         } else {
+          chat.setUser(authData.uid, "google" + authData.uid.substr(10, 8));
               console.log("Authenticated successfully. Payload:", authData);
             }
           });
-      
+
     </script>
   </body>
 </html>
