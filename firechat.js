@@ -6,7 +6,7 @@
 
 this["FirechatDefaultTemplates"] = this["FirechatDefaultTemplates"] || {};
 
-this["FirechatDefaultTemplates"]["templates/layout-full.html"] = function(obj) {obj || (obj = {});var __t, __p = '', __e = _.escape;with (obj) {__p += '<div id=\'firechat\' class=\'full\'>\n<div id=\'firechat-header\' class=\'clearfix\'>\n<div class=\'clearfix\'><div class=\'half firechat-dropdown\' style=\'\'>\n<a id=\'firechat-btn-rooms\' class=\'firechat-dropdown-toggle btn full\' data-toggle="firechat-dropdown" href=\'#\'>\n<span class=\'icon user-chat\'></span>\nChat Rooms\n<span class=\'caret\'></span>\n</a>\n<div class=\'firechat-dropdown-menu full\' role=\'menu\'><ul id=\'firechat-room-list\'></ul><div class=\'firechat-dropdown-footer aligncenter\'>\n<button type=\'button\' class=\'btn twothird center\' id=\'firechat-btn-create-room-prompt\'>Create Room</button>\n</div></div></div>\n<div class=\'half firechat-dropdown\' style=\'\'>\n<a data-event=\'firechat-user-search-btn\' class=\'btn full firechat-dropdown-toggle\' data-toggle="firechat-dropdown" href=\'#\'>\n<span class=\'icon user-group\'></span>\nVisitors\n<span class=\'caret\'></span>\n</a>\n<div class=\'firechat-dropdown-menu\' role=\'menu\'>\n<div class=\'firechat-dropdown-header aligncenter clearfix\'>\n<div class=\'search-wrapper\'>\n<span class=\'icon search\'></span>\n<input type=\'text\' data-event=\'firechat-user-search\' data-template=\'templates/user-search-list-item.html\' data-target=\'firechat-user-search\' data-controls=\'firechat-user-search-controls\' class=\'center fivesixth\'>\n</div>\n</div>\n<ul id=\'firechat-user-search\'></ul><div class=\'firechat-dropdown-footer aligncenter clearfix\'>\n<div id=\'firechat-user-search-controls\' class=\'clearfix\'>\n<span class="quarter"></span>\n<button type=\'button\' class=\'btn half\' data-event=\'firechat-user-search\' data-toggle=\'firechat-pagination-next\' data-template=\'templates/user-search-list-item.html\' data-target=\'firechat-user-search\' data-controls=\'firechat-user-search-controls\' disabled=disabled>Next</button>\n</div><label class=\'center full\'>\n<small>Use "+ Invite" button within chat rooms for regular invites.</small>\n</label>\n</div>\n</div>\n</div>\n</div>\n</div>\n<div id=\'firechat-tabs\' class=\'clearfix\'>\n<ul id=\'firechat-tab-list\' class=\'nav nav-tabs clearfix\'></ul>\n<div id=\'firechat-tab-content\' class=\'tab-content\'></div>\n</div><div id=\'firechat-footer\' class=\'clearfix\'></div>\n</div>';}return __p};
+this["FirechatDefaultTemplates"]["templates/layout-full.html"] = function(obj) {obj || (obj = {});var __t, __p = '', __e = _.escape;with (obj) {__p += '<div id=\'firechat\' class=\'full\'>\n<div id=\'firechat-header\' class=\'clearfix\'>\n<div class=\'clearfix\'><div class=\'half firechat-dropdown\' style=\'\'>\n<a id=\'firechat-btn-rooms\' class=\'firechat-dropdown-toggle btn full\' data-toggle="firechat-dropdown" href=\'#\'>\n<span class=\'icon user-chat\'></span>\nTopics Room\n<span class=\'caret\'></span>\n</a>\n<div class=\'firechat-dropdown-menu full\' role=\'menu\'><ul id=\'firechat-room-list\'></ul><div class=\'firechat-dropdown-footer aligncenter\'>\n<button type=\'button\' class=\'btn twothird center\' id=\'firechat-btn-create-room-prompt\'>Create Room</button>\n</div></div></div>\n<div class=\'half firechat-dropdown\' style=\'\'>\n<a data-event=\'firechat-user-search-btn\' class=\'btn full firechat-dropdown-toggle\' data-toggle="firechat-dropdown" href=\'#\'>\n<span class=\'icon user-group\'></span>\nVisitors\n<span class=\'caret\'></span>\n</a>\n<div class=\'firechat-dropdown-menu\' role=\'menu\'>\n<div class=\'firechat-dropdown-header aligncenter clearfix\'>\n<div class=\'search-wrapper\'>\n<span class=\'icon search\'></span>\n<input type=\'text\' data-event=\'firechat-user-search\' data-template=\'templates/user-search-list-item.html\' data-target=\'firechat-user-search\' data-controls=\'firechat-user-search-controls\' class=\'center fivesixth\'>\n</div>\n</div>\n<ul id=\'firechat-user-search\'></ul><div class=\'firechat-dropdown-footer aligncenter clearfix\'>\n<div id=\'firechat-user-search-controls\' class=\'clearfix\'>\n<span class="quarter"></span>\n<button type=\'button\' class=\'btn half\' data-event=\'firechat-user-search\' data-toggle=\'firechat-pagination-next\' data-template=\'templates/user-search-list-item.html\' data-target=\'firechat-user-search\' data-controls=\'firechat-user-search-controls\' disabled=disabled>Next</button>\n</div><label class=\'center full\'>\n<small>Use "+ Invite" button within chat rooms for regular invites.</small>\n</label>\n</div>\n</div>\n</div>\n</div>\n</div>\n<div id=\'firechat-tabs\' class=\'clearfix\'>\n<ul id=\'firechat-tab-list\' class=\'nav nav-tabs clearfix\'></ul>\n<div id=\'firechat-tab-content\' class=\'tab-content\'></div>\n</div><div id=\'firechat-footer\' class=\'clearfix\'></div>\n</div>';}return __p};
 
 this["FirechatDefaultTemplates"]["templates/layout-popout.html"] = function(obj) {obj || (obj = {});var __t, __p = '', __e = _.escape;with (obj) {__p += '<div id=\'firechat\' class=\'full\'>\n<div id=\'firechat-tabs\' class=\'clearfix\'>\n<ul id=\'firechat-tab-list\' class=\'nav nav-tabs clearfix\'></ul>\n<div id=\'firechat-tab-content\' class=\'tab-content\'></div>\n</div>\n</div>';}return __p};
 
@@ -47,15 +47,15 @@ this["FirechatDefaultTemplates"]["templates/user-search-list-item.html"] = funct
       if (typeof this !== "function") {
         throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");
       }
-  
-      var aArgs = Array.prototype.slice.call(arguments, 1), 
-          fToBind = this, 
+
+      var aArgs = Array.prototype.slice.call(arguments, 1),
+          fToBind = this,
           fNOP = function() {},
           fBound = function() {
             return fToBind.apply(this instanceof fNOP && oThis ? this : oThis,
                                  aArgs.concat(Array.prototype.slice.call(arguments)));
           };
-   
+
       fNOP.prototype = this.prototype;
       fBound.prototype = new fNOP();
       return fBound;
@@ -63,14 +63,14 @@ this["FirechatDefaultTemplates"]["templates/user-search-list-item.html"] = funct
   }
 
   // Shim for Object.keys(...) - (Required by IE < 9, FF < 4)
-  Object.keys = Object.keys || function(oObj) {  
-    var result = [];  
-    for (var name in oObj) {  
+  Object.keys = Object.keys || function(oObj) {
+    var result = [];
+    for (var name in oObj) {
       if (oObj.hasOwnProperty(name)) {
-        result.push(name);  
+        result.push(name);
       }
-    }  
-    return result;  
+    }
+    return result;
   };
 
 })();
